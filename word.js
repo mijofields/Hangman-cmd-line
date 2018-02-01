@@ -8,6 +8,7 @@ var Word = function(randomWord) {
 			
 		this.randomWord = randomWord;
 		this.letterObjArr = [];
+		
 
 		this.arrConstruct = function () {
 			
@@ -23,18 +24,23 @@ var Word = function(randomWord) {
 			};
 
 
-	};// end of arrContruct
+	},// end of arrContruct
 
 
 
 		this.wordString = function () {
 
+			this.stringArr = [];
+			this.arrString = "";
+
 			console.log(this.letterObjArr.length);
+			console.log(this.letterObjArr);
 
-			for (var i = 0; this.letterObjArr.length; i++){
+			for (var i = 0; i < this.letterObjArr.length; i++){
 
 
-				console.log(this.letterObjArr[i].char);
+				this.stringArr.push(this.letterObjArr[i].char);
+	
 
 
 				// this.letterObjArr[i].character();
@@ -43,12 +49,15 @@ var Word = function(randomWord) {
 
 			}; //end of for
 
-		}//end of wordString
-	} // end of Word
+				this.arrString = this.stringArr.join(" ");
 
-var test = new Word ("mike");
+		}//end of wordString
+	}; // end of Word
+
+var test = new Word ("bicycle");
 test.arrConstruct();
 test.wordString();
+console.log("arrString " + test.arrString);
 console.log("stringify" + JSON.stringify(test));
 
 
