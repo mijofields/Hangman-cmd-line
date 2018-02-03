@@ -1,3 +1,4 @@
+
 var Letter = function(letter) {
 
 	this.letter = letter;
@@ -15,14 +16,20 @@ var Letter = function(letter) {
 
 			this.char = "_";
 
+			//this function feels suprfluous probably remove
+
 				}	
 	}; //end of character
 
   	this.letterCheck = function(userInput) {
 
-    	if (userInput.toLowerCase() === this.letter) {
+  		this.userInput = userInput;
+
+    	if (this.userInput === this.letter) {
 
     	this.guessed = true;
+    	this.char = letter;
+    	return;
 
   		};
   	}; //end of letterCheck

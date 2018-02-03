@@ -1,9 +1,6 @@
 var Letter = require("./letter.js");
 
 
-// letterObjArr = [];
-
-
 var Word = function(randomWord) {
 			
 		this.randomWord = randomWord;
@@ -17,7 +14,6 @@ var Word = function(randomWord) {
 
 			var letter = this.randomWord.charAt(i);
 			var letterObj = new Letter(letter);
-			console.log(letterObj);
 			this.letterObjArr.push(letterObj);
 
 
@@ -32,18 +28,13 @@ var Word = function(randomWord) {
 
 			this.stringArr = [];
 			this.arrString = "";
-
-			console.log(this.letterObjArr.length);
-			console.log(this.letterObjArr);
+			this.correctArr = [];
 
 			for (var i = 0; i < this.letterObjArr.length; i++){
 
 
 				this.stringArr.push(this.letterObjArr[i].char);
-	
-
-
-				// this.letterObjArr[i].character();
+				this.correctArr.push(this.letterObjArr[i].letter);
 
 
 
@@ -54,17 +45,5 @@ var Word = function(randomWord) {
 		}//end of wordString
 	}; // end of Word
 
-var test = new Word ("bicycle");
-test.arrConstruct();
-test.wordString();
-console.log("arrString " + test.arrString);
-console.log("stringify" + JSON.stringify(test));
+module.exports = Word;
 
-
-
-
-
-
-
-
- // end of word
