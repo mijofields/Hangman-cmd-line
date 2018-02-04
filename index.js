@@ -29,7 +29,7 @@ inquirer
           	break;
 
         	case false:
-          	console.log("OK, come back when you are ready to play!")
+          	console.log(chalk.cyanBright("OK, come back when you are ready to play!"));
           	break;
 
 
@@ -45,6 +45,7 @@ function initGame () {
 
 randomWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 gameWord = new Word (randomWord);
+letterGuesses = [];
 gameWord.arrConstruct();
 gameWord.wordString();
 console.log(chalk.bold.blue("Here's your pasta, get guessing and earn your dough..."));
@@ -99,12 +100,28 @@ inquirer
 
 
 		guessesLeft--;
+
+			if (guessesLeft === 0) {
+
+				losses++;
+				console.log(chalk.bold.cyanBright(" You lose, play again if you dare...\n" + "You have " + wins + " wins and " + losses + " losses."));
+				gameDecision();
+				return;
+
+			} else {
+
+
+
 		console.log(" " +chalk.blue(userInput.toUpperCase() + " was a bad guess.") +  chalk.yellowBright(" You have ") + chalk.blue(guessesLeft) + chalk.yellowBright(" wrong guesses remaining..."));
 		letterGuesses.push(userInput);
 		playGame();
 
+	}
+
 
 	} else {
+
+
 
 		console.log(" " + chalk.bold.magenta(userInput.toUpperCase() + " was a good guess!"));
 		letterGuesses.push(userInput);				
@@ -115,14 +132,22 @@ inquirer
 		gameWord.letterObjArr[i].letterCheck(userInput);
 
 
-	}
+	}	
 
-
-	// letterGuesses.push(userInput);
-	// console.log("Correct guess!");
 
 		gameWord.wordString();
+
+		if (randomWord === gameWord.matches) {
+
+			wins++;
+			console.log(chalk.underline.bold.yellowBright(" You win!\n" + " You have " + wins + " wins and " + losses + " losses.\n" + " Play again if you dare..."))
+			gameDecision();
+
+		} else {
+
 		playGame();
+
+	};
 
 };
 

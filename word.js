@@ -41,6 +41,7 @@ var Word = function(randomWord) {
 			}; //end of for
 
 				this.arrString = this.stringArr.join(" ");
+				this.matches = this.stringArr.join("");
 
 		}//end of wordString
 	}; // end of Word
