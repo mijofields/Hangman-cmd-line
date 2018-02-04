@@ -49,7 +49,7 @@ letterGuesses = [];
 gameWord.arrConstruct();
 gameWord.wordString();
 console.log(chalk.bold.blue("Here's your pasta, get guessing and earn your dough..."));
-console.log("Pasta: " + randomWord);
+// console.log("Pasta: " + randomWord);
 playGame();
 
 };
@@ -86,7 +86,7 @@ inquirer
 	check = gameWord.correctArr.indexOf(userInput);
 	repeatCheck = letterGuesses.indexOf(userInput);
 
-	console.log("pos in arr: " + repeatCheck);
+	// console.log("pos in arr: " + repeatCheck);
 
 	if (repeatCheck !== -1){
 
