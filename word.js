@@ -7,7 +7,7 @@ var Word = function(randomWord) {
 		this.letterObjArr = [];
 		
 
-		this.arrConstruct = function () {
+		this.arrConstruct = function (randomWord) {
 			
 
 			for (var i = 0; i < this.randomWord.length; i++){ 
@@ -24,7 +24,7 @@ var Word = function(randomWord) {
 
 
 
-		this.wordString = function () {
+		this.wordString = function (randomWord) {
 
 			this.stringArr = [];
 			this.arrString = "";
